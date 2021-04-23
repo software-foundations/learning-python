@@ -39,3 +39,15 @@ It turns out that data classes compare objects as if they were tuples of their f
 """
 
 print(('A', '♠') > ('Q', '♡'))
+
+"""
+That does not really work for us. Instead, we need to define some kind of sort index that uses the order of RANKS and SUITS. Something like this:
+"""
+
+RANKS = '2 3 4 5 6 7 8 9 10 J Q K A'.split()
+SUITS = '♣ ♢ ♡ ♠'.split()
+card = PlayingCard('Q', '♡')
+print(RANKS.index(card.rank) * len(SUITS) + SUITS.index(card.suit))
+
+print(RANKS.index(card.rank))
+print(RANKS.index(card.rank) * len(SUITS))
